@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBA17C65-BC99-4760-9B62-B74D980616C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CrediBlaster</RootNamespace>
+    <AssemblyName>CrediBlaster</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\app\product\11.2.0\client_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\FormCadastroFeriados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCadastroFeriados.Designer.cs">
+      <DependentUpon>FormCadastroFeriados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Processamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Processamento.Designer.cs">
+      <DependentUpon>Processamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\ConnexaoBD.cs" />
+    <Compile Include="Framework\UnidadeEmpresa.cs" />
+    <Compile Include="Model\Agencia.cs" />
+    <Compile Include="Model\Contrato.cs" />
+    <Compile Include="DTO\DetalheContratoDTO.cs" />
+    <Compile Include="Forms\FormEfetivaLotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEfetivaLotes.Designer.cs">
+      <DependentUpon>FormEfetivaLotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLiquidacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLiquidacao.Designer.cs">
+      <DependentUpon>FormLiquidacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLiquidacaoNovo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLiquidacaoNovo.Designer.cs">
+      <DependentUpon>FormLiquidacaoNovo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormOperacoesCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormOperacoesCredito.Designer.cs">
+      <DependentUpon>FormOperacoesCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTelaPrincipal.Designer.cs">
+      <DependentUpon>FormTelaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Lote.cs" />
+    <Compile Include="DTO\LoteDTO.cs" />
+    <Compile Include="DTO\ParcelasDTO.cs" />
+    <Compile Include="DataSetCrediblaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCrediblaster.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEfetivaContratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEfetivaContratos.Designer.cs">
+      <DependentUpon>FormEfetivaContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PessoaFisica.cs" />
+    <Compile Include="DTO\PessoaFisicaDTO.cs" />
+    <Compile Include="DTO\AgenciaDTO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abrangencia.cs" />
+    <Compile Include="Services\ImportaInterfaceService.cs" />
+    <Compile Include="Services\TelaContratosServices.cs" />
+    <Compile Include="Services\TelaEfetivaLotesServices.cs" />
+    <Compile Include="Services\TelaLiquidacaoService.cs" />
+    <Compile Include="Services\TelaOperacoesServices.cs" />
+    <Compile Include="Services\TelaParametrosService.cs" />
+    <Compile Include="Services\TelaProcessamentoService.cs" />
+    <EmbeddedResource Include="Forms\FormCadastroFeriados.resx">
+      <DependentUpon>FormCadastroFeriados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEfetivaContratos.resx">
+      <DependentUpon>FormEfetivaContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEfetivaLotes.resx">
+      <DependentUpon>FormEfetivaLotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLiquidacao.resx">
+      <DependentUpon>FormLiquidacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLiquidacaoNovo.resx">
+      <DependentUpon>FormLiquidacaoNovo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormOperacoesCredito.resx">
+      <DependentUpon>FormOperacoesCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTelaPrincipal.resx">
+      <DependentUpon>FormTelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Processamento.resx">
+      <DependentUpon>Processamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="DataSetCrediblaster.xsc">
+      <DependentUpon>DataSetCrediblaster.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCrediblaster.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCrediblaster.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetCrediblaster.xss">
+      <DependentUpon>DataSetCrediblaster.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagens\finances.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
